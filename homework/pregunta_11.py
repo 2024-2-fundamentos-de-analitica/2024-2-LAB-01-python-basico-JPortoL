@@ -4,7 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import csv
 
 def pregunta_11():
     """
@@ -16,3 +16,18 @@ def pregunta_11():
 
 
     """
+    conteo = {}
+    with open("files/input/data.csv", mode='r', newline='', encoding='utf-8') as archivo:
+        lector_csv = csv.reader(archivo, delimiter='\t')
+        for fila in lector_csv:
+            letras = fila[3]
+            for letra in letras.split(","):
+                columna_2 = int(fila[1])
+                if letra in conteo:
+                    conteo[letra] += columna_2
+                else:
+                    conteo[letra] = columna_2
+    return conteo
+
+if __name__ == "__main__":  
+    print(pregunta_11())
