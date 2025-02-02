@@ -25,7 +25,7 @@ def pregunta_10():
         lector_csv = csv.reader(archivo, delimiter='\t')
         for fila in lector_csv:
             letra = fila[0]
-            columna_4 = len(fila[3])
+            columna_4 = len(fila[3].split(","))
             columna_5 = len(fila[4].split(","))
             conteo.append((letra, columna_4, columna_5))
     return conteo

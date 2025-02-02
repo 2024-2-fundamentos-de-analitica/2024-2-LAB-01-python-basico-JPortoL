@@ -41,7 +41,7 @@ def pregunta_06():
                         conteo[clave] = (conteo[clave][0], valor)
                 else:
                     conteo[clave] = (valor, valor)
-    return sorted([(k, v[0], v[1]) for k, v in conteo.items()])
+    return sorted([(k, v[1], v[0]) for k, v in conteo.items()])
 
 if __name__ == "__main__":  
     print(pregunta_06())
